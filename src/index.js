@@ -2,6 +2,12 @@ import validator from './validator.js';
 
 console.log(validator);
 
+const mostrarContenedorUno = document.getElementById('container');
+mostrarContenedorUno.classList.add('mostrar')
+
+const ocultarContenedorDos = document.getElementById('container2');
+ocultarContenedorDos.classList.add('ocultar');
+
 function obtenerNumero(){
     // Obtener el valor el input
     const numeroTarjeta = document.getElementById('numero').value;
@@ -46,18 +52,45 @@ function obtenerNumero(){
     }
 
     console.log('digitos de números >10',lista2);
-    
+
+    //suma de los elementos del array
     const total = lista2.reduce((sum, current) => sum + current, 0);
     console.log(total);
 
+
+    //verificar si la suma da un múltiplo de 10
     let verificado = false;
     if(total%10===0){
-        return true
+        verificado = true
     }
 
     console.log(verificado);
-    
 }
+
+function maskify(){
+    const numeroTarjeta2 = document.getElementById('numero').value;
+    let maskify = '';
+    for(let i=0; i<numeroTarjeta2.length; i++){
+        if(i<=numeroTarjeta2.length-5){
+            maskify = maskify + '#';
+        }else{
+            maskify = maskify + numeroTarjeta2[i]*1;
+        }
+    }
+    console.log(maskify);
+}
+
+function segundaVentana(){
+    const mostrarContenedorDos = document.getElementById('container2');
+    mostrarContenedorDos.classList.add('mostrar');
+
+    const ocultarContenedorUno = document.getElementById('container');
+    ocultarContenedorUno.classList.remove('mostrar');
+    ocultarContenedorUno.classList.add('ocultar');
+}
+
 
 const btn = document.getElementById('button');
 btn.addEventListener('click', obtenerNumero, false);
+btn.addEventListener('click', maskify, false);
+btn.addEventListener('click', segundaVentana, false);
