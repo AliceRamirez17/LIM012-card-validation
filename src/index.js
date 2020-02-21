@@ -5,7 +5,6 @@ const mostrarContenedorDos = document.getElementById('container2');
 mostrarContenedorDos.classList.add('ocultar');
 
 let mensaje;
-let imagen;
 const btn = document.getElementById('button');
 
 btn.addEventListener('click',()=>{
@@ -16,20 +15,23 @@ btn.addEventListener('click',()=>{
     //responder al ingreso vacío
     const ingresarValor = document.getElementById('numero');
     
-    document.getElementById("emoticon").src='src/img';
-
     //llamar a la función isvalid
     let resultadoFinal = validator.isValid(numeroTarjeta);
 
     if(ingresarValor.checkValidity()==false&&ingresarValor.required){
-        alert('Debe ingresar el número de tarjeta');
+        alert('Debe ingresar el número de tarjeta');   
     }else{
-        if(resultadoFinal===true){
+        //mostrar y ocultar contenedores
+        mostrarContenedorDos.classList.add('mostrar');
+        mostrarContenedorUno.classList.remove('mostrar');
+        mostrarContenedorUno.classList.add('ocultar');
+
+        if(resultadoFinal===true){ 
             mensaje = '¡TU TARJETA ES VÁLIDA!';
-            imagen = 'happy.svg';
+            document.getElementById("emoticon").src='img\\happy.svg';
         }else{
             mensaje= '¡TU TARJETA NO ES VÁLIDA!';
-            imagen = 'sad.svg';
+            document.getElementById("emoticon").src='img\\sad2.svg';
         }
     }
 
@@ -40,15 +42,6 @@ btn.addEventListener('click',()=>{
     const mostrarMensaje = document.getElementById('mensaje');
     mostrarMensaje.innerHTML = `${mensaje}`
 
-    const mostrarEmoticon = document.getElementById('emoticon');
-    mostrarEmoticon.innerHTML = `${imagen}`
-
     const mostrarResultado = document.getElementById('numeroOculto');
     mostrarResultado.innerHTML = `${numeroOculto}`
-
-    //mostrar y ocultar contenedores
-    mostrarContenedorDos.classList.add('mostrar');
-    mostrarContenedorUno.classList.remove('mostrar');
-    mostrarContenedorUno.classList.add('ocultar');
-    
 });
