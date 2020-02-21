@@ -17,7 +17,7 @@
           <div id="info">
             <h1>PARA SEGUIR<br>CON SU COMPRA</h1>
             <h2>Ingresa los 16 dígitos de tu tarjeta</h2>
-            <input type="text" id="numero" maxlength="16" placeholder="Ingrese aquí" required>
+            <input type="text" id="numero" maxlength="16" onfocus="this.value=''" value="Ingrese aquí" required>
             <button id="button">Validar</button>
           </div>
         </div>
@@ -32,6 +32,7 @@
             <h1 id="mensaje"></h1>
             <img id="emoticon">
             <h2 id="numeroOculto"></h2>
+            <button id="botonRegresar">Regresar</button>
           </div>
         </div>
       </div>

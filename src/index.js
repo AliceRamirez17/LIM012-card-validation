@@ -1,8 +1,8 @@
 import validator from './validator.js'; 
 
-const mostrarContenedorUno = document.getElementById('container');
-const mostrarContenedorDos = document.getElementById('container2');
-mostrarContenedorDos.classList.add('ocultar');
+const ContenedorUno = document.getElementById('container');
+const ContenedorDos = document.getElementById('container2');
+ContenedorDos.classList.add('ocultar');
 
 let mensaje;
 const btn = document.getElementById('button');
@@ -22,9 +22,9 @@ btn.addEventListener('click',()=>{
         alert('Debe ingresar el número de tarjeta');   
     }else{
         //mostrar y ocultar contenedores
-        mostrarContenedorDos.classList.add('mostrar');
-        mostrarContenedorUno.classList.remove('mostrar');
-        mostrarContenedorUno.classList.add('ocultar');
+        ContenedorDos.classList.add('mostrar');
+        ContenedorUno.classList.remove('mostrar');
+        ContenedorUno.classList.add('ocultar');
 
         if(resultadoFinal===true){ 
             mensaje = '¡TU TARJETA ES VÁLIDA!';
@@ -44,4 +44,15 @@ btn.addEventListener('click',()=>{
 
     const mostrarResultado = document.getElementById('numeroOculto');
     mostrarResultado.innerHTML = `${numeroOculto}`
+});
+
+const btnRegresar = document.getElementById('botonRegresar');
+
+btnRegresar.addEventListener('click',()=>{
+    ContenedorUno.classList.add('mostrar');
+    ContenedorDos.classList.remove('mostrar');
+
+    const vacio = "";
+    document.getElementById('numero').value(vacio);
+
 });
