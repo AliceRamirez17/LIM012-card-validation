@@ -52,7 +52,6 @@ btnRegresar.addEventListener('click',()=>{
     ContenedorUno.classList.add('mostrar');
     ContenedorDos.classList.remove('mostrar');
 
-    const vacio = "";
-    document.getElementById('numero').value(vacio);
+    document.getElementById('numero').value = "";
 
 });
