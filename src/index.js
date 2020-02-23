@@ -2,12 +2,14 @@ import validator from './validator.js';
 
 const ContenedorUno = document.getElementById('container');
 const ContenedorDos = document.getElementById('container2');
-ContenedorDos.classList.add('ocultar');
+
 
 let mensaje;
-const btn = document.getElementById('button');
+const btnValidar = document.getElementById('btnValidar');
+const btnRegresar = document.getElementById('btnRegresar');
+const btnSeguirCompra = document.getElementById('btnSeguirCompra');
 
-btn.addEventListener('click',()=>{
+btnValidar.addEventListener('click',()=>{
 
     //obteniendo el valor del input
     const numeroTarjeta = document.getElementById('numero').value;
@@ -29,9 +31,12 @@ btn.addEventListener('click',()=>{
         if(resultadoFinal===true){ 
             mensaje = '¡TU TARJETA ES VÁLIDA!';
             document.getElementById("emoticon").src='img\\happy.svg';
+            btnSeguirCompra.classList.remove('ocultar');
+            btnRegresar.classList.add('ocultar');
         }else{
             mensaje= '¡TU TARJETA NO ES VÁLIDA!';
             document.getElementById("emoticon").src='img\\sad2.svg';
+            btnRegresar.classList.remove('ocultar');
         }
     }
 
@@ -44,14 +49,12 @@ btn.addEventListener('click',()=>{
 
     const mostrarResultado = document.getElementById('numeroOculto');
     mostrarResultado.innerHTML = `${numeroOculto}`
-});
 
-const btnRegresar = document.getElementById('botonRegresar');
-
-btnRegresar.addEventListener('click',()=>{
-    ContenedorUno.classList.add('mostrar');
-    ContenedorDos.classList.remove('mostrar');
-
-    document.getElementById('numero').value = "";
+    btnRegresar.addEventListener('click',()=>{
+        ContenedorUno.classList.add('mostrar');
+        ContenedorDos.classList.remove('mostrar');
+    
+        document.getElementById('numero').value = "";
+    })
 
 });
