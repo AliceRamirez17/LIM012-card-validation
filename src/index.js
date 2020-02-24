@@ -1,13 +1,15 @@
 import validator from './validator.js'; 
 
-const mostrarContenedorUno = document.getElementById('container');
-const mostrarContenedorDos = document.getElementById('container2');
-mostrarContenedorDos.classList.add('ocultar');
+const ContenedorUno = document.getElementById('container');
+const ContenedorDos = document.getElementById('container2');
+
 
 let mensaje;
-const btn = document.getElementById('button');
+const btnValidar = document.getElementById('btnValidar');
+const btnRegresar = document.getElementById('btnRegresar');
+const btnSeguirCompra = document.getElementById('btnSeguirCompra');
 
-btn.addEventListener('click',()=>{
+btnValidar.addEventListener('click',()=>{
 
     //obteniendo el valor del input
     const numeroTarjeta = document.getElementById('numero').value;
@@ -22,16 +24,19 @@ btn.addEventListener('click',()=>{
         alert('Debe ingresar el número de tarjeta');   
     }else{
         //mostrar y ocultar contenedores
-        mostrarContenedorDos.classList.add('mostrar');
-        mostrarContenedorUno.classList.remove('mostrar');
-        mostrarContenedorUno.classList.add('ocultar');
+        ContenedorDos.classList.add('mostrar');
+        ContenedorUno.classList.remove('mostrar');
+        ContenedorUno.classList.add('ocultar');
 
         if(resultadoFinal===true){ 
             mensaje = '¡TU TARJETA ES VÁLIDA!';
             document.getElementById("emoticon").src='img\\happy.svg';
+            btnSeguirCompra.classList.remove('ocultar');
+            btnRegresar.classList.add('ocultar');
         }else{
             mensaje= '¡TU TARJETA NO ES VÁLIDA!';
             document.getElementById("emoticon").src='img\\sad2.svg';
+            btnRegresar.classList.remove('ocultar');
         }
     }
 
@@ -44,4 +49,12 @@ btn.addEventListener('click',()=>{
 
     const mostrarResultado = document.getElementById('numeroOculto');
     mostrarResultado.innerHTML = `${numeroOculto}`
+
+    btnRegresar.addEventListener('click',()=>{
+        ContenedorUno.classList.add('mostrar');
+        ContenedorDos.classList.remove('mostrar');
+    
+        document.getElementById('numero').value = "";
+    })
+
 });
