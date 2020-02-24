@@ -150,7 +150,7 @@ Debe contener lo siguiente:
 * Un resumen de 1 o 2 líneas de qué se trata tu proyecto:
 **En el proceso de compra de productos, es la etapa donde se verifica si tu tarjeta es válida o no, y cuando se verifique que si es válida, seguir el proceso de flujo normal de compra.**
 * La imagen final de tu proyecto.
-![Producto final](src/img/producto_final.jpg)
+![Producto final](src/img/producto_final.JPG)
 [Link](https://aliceramirez17.github.io/LIM012-card-validation/src/)
 * Investigación UX:
   1. Explicar quiénes son los usuarios y los objetivos en relación con el
@@ -166,7 +166,7 @@ Debe contener lo siguiente:
   4. Agregar un resumen del feedback recibido indicando las mejoras a realizar.
   **Que la primera vista de la página debe mostrar los 16 dígitos visibles y que en la segunda vista, este número debe mostrarse oculto hasta los últimos dígitos.**
   5. Imagen del prototipo final.
-  ![Prototipo en papel](src/img/prototipo_figma.jpg)
+  ![Prototipo en papel](src/img/prototipo_figma.JPG)
   [Link](https://www.figma.com/file/HK2ZGEQeF6OOOVt2zj2cNI/Prototipado-Credit-Card?node-id=0%3A1)
 
 #### Visualmente (HTML y CSS)
