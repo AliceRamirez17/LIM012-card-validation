@@ -41,7 +41,7 @@ const validator = {
             if(i<=numeroTarjeta.length-5){
                 maskify2 = maskify2 + '#';
             }else{
-                maskify2 = maskify2 + numeroTarjeta[i]*1;
+                maskify2 = maskify2 + numeroTarjeta[i];
             }
         }
         return maskify2
