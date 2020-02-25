@@ -111,6 +111,11 @@ input{
     text-align: center;
 }
 
+#textoAlert{
+    color: red;
+    margin-bottom: 20px;
+}
+
 #btnValidar{
     width: 250px;
     height: 50px;

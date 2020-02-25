@@ -9,19 +9,23 @@ const btnValidar = document.getElementById('btnValidar');
 const btnRegresar = document.getElementById('btnRegresar');
 const btnSeguirCompra = document.getElementById('btnSeguirCompra');
 
-btnValidar.addEventListener('click',()=>{
+btnValidar.addEventListener('click',(validacion)=>{
 
     //obteniendo el valor del input
     const numeroTarjeta = document.getElementById('numero').value;
 
     //responder al ingreso vacío
-    const ingresarValor = document.getElementById('numero');
+    //const ingresarValor = document.getElementById('numero');
     
     //llamar a la función isvalid
     let resultadoFinal = validator.isValid(numeroTarjeta);
 
-    if(ingresarValor.checkValidity()==false&&ingresarValor.required){
-        alert('Debe ingresar el número de tarjeta');   
+    const textoAlert = document.getElementById('textoAlert');
+
+    if(numeroTarjeta === ''){
+        validacion.preventDefault();
+        textoAlert.classList.remove('ocultar');
+        textoAlert.innerHTML = 'Necesitas llenar este campo';
     }else{
         //mostrar y ocultar contenedores
         ContenedorDos.classList.add('mostrar');
@@ -55,6 +59,8 @@ btnValidar.addEventListener('click',()=>{
         ContenedorDos.classList.remove('mostrar');
     
         document.getElementById('numero').value = "";
+        textoAlert.classList.add('ocultar');
+        textoAlert.innerHTML = "";
     })
 
 });
